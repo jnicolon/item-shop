@@ -1,27 +1,36 @@
 import React, { Component } from "react";
-//import * as contentful from "contentful";
+import { connect } from "react-redux";
+import * as itemActions from "../redux/actions/itemActions";
+import PropTypes from "prop-types";
+import { bindActionCreators } from "redux";
 
-export default class Weapons extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     allItems: {},
-  //   };
-  // }
-
-  // componentDidMount() {
-  //   const client = contentful.createClient({
-  //     space: "bz2b6zu2ij16",
-  //     accessToken: "5g4Q46RqnmPxrAOwon5dsojjIVslg7fFC17jryB4IEY",
-  //   });
-
-  //   client
-  //     .getEntries("itemShop")
-  //     .then((entry) => console.log(entry))
-  //     .catch((err) => console.log(err));
-  // }
+class Weapons extends Component {
+  componentDidMount() {
+    this.props.actions.loadItems().catch((error) => {
+      alert("Loading error" + error);
+    });
+  }
 
   render() {
-    return <div>These are the Weapons</div>;
+    return <div></div>;
   }
 }
+
+Weapons.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  actions: PropTypes.object.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    items: state.items,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(itemActions, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Weapons);
