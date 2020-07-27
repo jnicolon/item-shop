@@ -1,25 +1,34 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as itemActions from "../redux/actions/itemActions";
-import PropTypes from "prop-types";
-import { bindActionCreators } from "redux";
+import * as api from "../api/itemsApi";
 
 class Weapons extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      items: [],
+      error: "",
+    };
+  }
+
   componentDidMount() {
-    this.props.actions.loadItems().catch((error) => {
-      alert("Loading error" + error);
-    });
+    this.props.dispatch(api.fetchItems());
   }
 
   render() {
-    return <div></div>;
+    const renderItems = this.props.items.items.map((key) => {
+      return (
+        <div className="single-item" key={key.fields.id}>
+          <img src={key.fields.image.fields.file.url} alt={key.fields.id} />
+        </div>
+      );
+    });
+
+    return <div className="item-container">{renderItems}</div>;
   }
 }
-
-Weapons.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  actions: PropTypes.object.isRequired,
-};
 
 function mapStateToProps(state) {
   return {
@@ -27,10 +36,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(itemActions, dispatch),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Weapons);
+export default connect(mapStateToProps)(Weapons);

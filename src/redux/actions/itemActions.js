@@ -1,22 +1,21 @@
 import * as types from "./actionTypes";
-import * as itemsApi from "../../api/itemsApi";
 
-export function loadItemsSuccess(items) {
+export const fetchItemsRequest = () => {
   return {
-    type: types.LOAD_ITEMS_SUCCESS,
-    items,
+    type: types.FETCH_ITEMS_REQUEST,
   };
-}
+};
 
-export function loadItems() {
-  return function (dispatch) {
-    return itemsApi
-      .getItems()
-      .then((items) => {
-        dispatch(loadItemsSuccess(items));
-      })
-      .catch((error) => {
-        throw error;
-      });
+export const fetchItemsSuccess = (items) => {
+  return {
+    type: types.FETCH_ITEMS_SUCCESS,
+    payload: items,
   };
-}
+};
+
+export const fetchItemsFailure = (error) => {
+  return {
+    type: types.FETCH_ITEMS_FAILURE,
+    payload: error,
+  };
+};

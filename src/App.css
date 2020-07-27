@@ -28,3 +28,22 @@
   font-size: 2rem;
   font-family: fantasy;
 }
+
+.item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  border: 2px solid white;
+}
+
+.single-item {
+  height: 50px;
+  width: 50px;
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

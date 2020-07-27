@@ -1,11 +1,30 @@
 import * as types from "../actions/actionTypes";
 
-export default function itemsReducer(state = [], action) {
+const initialState = {
+  loading: false,
+  items: [],
+  error: "",
+};
+
+export default function itemsReducer(state = initialState, action) {
   switch (action.type) {
-    case types.CREATE_ITEM1:
-      return "Hello Dolly";
-    case types.LOAD_ITEMS_SUCCESS:
-      return action.items;
+    case types.FETCH_ITEMS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case types.FETCH_ITEMS_SUCCESS:
+      return {
+        loading: false,
+        items: action.payload,
+        error: "",
+      };
+    case types.FETCH_ITEMS_FAILURE:
+      return {
+        loading: false,
+        users: [],
+        error: action.payload,
+      };
     default:
       return state;
   }
