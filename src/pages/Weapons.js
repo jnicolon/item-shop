@@ -1,24 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as itemActions from "../redux/actions/itemActions";
-import * as api from "../api/itemsApi";
 
 class Weapons extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: false,
-      items: [],
-      error: "",
-    };
-  }
-
-  componentDidMount() {
-    this.props.dispatch(api.fetchItems());
-  }
-
   render() {
-    const renderItems = this.props.items.items.map((key) => {
+    const filteredItems = this.props.items.items.filter(
+      (key) => key.fields.type === "weapon"
+    );
+
+    const renderItems = filteredItems.map((key) => {
       return (
         <div className="single-item" key={key.fields.id}>
           <img src={key.fields.image.fields.file.url} alt={key.fields.id} />

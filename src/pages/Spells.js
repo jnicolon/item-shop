@@ -1,26 +1,28 @@
 import React, { Component } from "react";
-import * as contentful from "contentful";
+import { connect } from "react-redux";
 
-export default class Spells extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-    };
-  }
-
-  componentDidMount() {
-    const client = contentful.createClient({
-      space: "bz2b6zu2ij16",
-      accessToken: "5g4Q46RqnmPxrAOwon5dsojjIVslg7fFC17jryB4IEY",
-    });
-    client
-      .getEntries("itemShop")
-      .then((entry) => console.log(entry))
-      .catch((err) => console.log(err));
-  }
-
+class Spells extends Component {
   render() {
-    return <div>spells</div>;
+    const filteredItems = this.props.items.items.filter(
+      (key) => key.fields.type === "spell"
+    );
+
+    const renderItems = filteredItems.map((key) => {
+      return (
+        <div className="single-item" key={key.fields.id}>
+          <img src={key.fields.image.fields.file.url} alt={key.fields.id} />
+        </div>
+      );
+    });
+
+    return <div className="item-container">{renderItems}</div>;
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    items: state.items,
+  };
+}
+
+export default connect(mapStateToProps)(Spells);

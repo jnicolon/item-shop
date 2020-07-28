@@ -5,13 +5,12 @@ import Header from "./components/Header";
 import Weapons from "./pages/Weapons";
 import Armor from "./pages/Armor";
 import Spells from "./pages/Spells";
+import { connect } from "react-redux";
+import * as api from "./api/itemsApi";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      allItems: {},
-    };
+  componentDidMount() {
+    this.props.dispatch(api.fetchItems());
   }
 
   render() {
@@ -30,4 +29,10 @@ class App extends React.Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    items: state.items,
+  };
+}
+
+export default connect(mapStateToProps)(App);
