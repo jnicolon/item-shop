@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import buyItem from "../redux/actions/goldActions";
+import addItemToCart from "../redux/actions/cartActions";
 
 class FilteredItems extends Component {
   render() {
@@ -14,9 +15,7 @@ class FilteredItems extends Component {
           <img src={item.fields.image.fields.file.url} alt={item.fields.id} />
           <p>{item.fields.itemName}</p>
           <p>{item.fields.price} gold</p>
-          <button onClick={() => this.props.buyItem(item.fields.price)}>
-            Buy
-          </button>
+          <button onClick={() => this.props.buyItem(item)}>Buy</button>
         </div>
       );
     });
@@ -33,7 +32,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    buyItem: (price) => dispatch(buyItem(price)),
+    buyItem: (item) => {
+      dispatch(buyItem(item.fields.price));
+      dispatch(addItemToCart(item.fields));
+    },
   };
 }
 

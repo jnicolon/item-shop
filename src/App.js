@@ -7,7 +7,7 @@ import Armor from "./pages/Armor";
 import Spells from "./pages/Spells";
 import Intro from "./pages/Intro";
 import { connect } from "react-redux";
-import * as api from "./api/itemsApi";
+import * as api from "./redux/middleWare/itemsApi";
 
 class App extends React.Component {
   componentDidMount() {
