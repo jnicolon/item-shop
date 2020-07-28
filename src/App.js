@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Weapons from "./pages/Weapons";
 import Armor from "./pages/Armor";
 import Spells from "./pages/Spells";
+import Intro from "./pages/Intro";
 import { connect } from "react-redux";
 import * as api from "./api/itemsApi";
 
@@ -19,9 +20,10 @@ class App extends React.Component {
         <BrowserRouter>
           <Header />
           <Switch>
-            <Route exact path="/" component={Weapons} />
+            <Route exact path="/" component={Intro} />
+            <Route path="/Weapon" component={Weapons} />
             <Route path="/Armor" component={Armor} />
-            <Route path="/Spells" component={Spells} />
+            <Route path="/Spell" component={Spells} />
           </Switch>
         </BrowserRouter>
       </div>

@@ -7,20 +7,20 @@
   margin-top: 100px;
 }
 .top-header {
+  height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  padding: 20px;
   border: 2px solid white;
 }
 
 .navbar {
+  height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  padding: 20px;
   border: 2px solid white;
 }
 
@@ -30,6 +30,7 @@
 }
 
 .item-container {
+  height: 400px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -39,11 +40,17 @@
 }
 
 .single-item {
-  height: 50px;
-  width: 50px;
+  width: 180px;
+  height: 180px;
+  color: black;
   border: 2px solid white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+}
+
+.single-item p {
+  margin: 0;
+  padding: 0;
 }

@@ -1,21 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import filteredItems from "../functionality/filteredItems";
 
 class Armor extends Component {
   render() {
-    const filteredItems = this.props.items.items.filter(
-      (key) => key.fields.type === "armor"
+    const renderItems = filteredItems(
+      this.props.location.pathname,
+      this.props.items.items
     );
-
-    console.log(this.props.location.pathname);
-
-    const renderItems = filteredItems.map((key) => {
-      return (
-        <div className="single-item" key={key.fields.id}>
-          <img src={key.fields.image.fields.file.url} alt={key.fields.id} />
-        </div>
-      );
-    });
 
     return <div className="item-container">{renderItems}</div>;
   }

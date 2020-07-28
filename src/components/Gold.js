@@ -1,7 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
+import { connect } from "react-redux";
 
-export default class Gold extends Component {
-  render() {
-    return <div>Gold</div>;
-  }
+function Gold(props) {
+  return <div>Gold: {props.goldTotal}</div>;
 }
+
+function mapStateToProps(state) {
+  return {
+    goldTotal: state.goldTotal.goldTotal,
+  };
+}
+
+export default connect(mapStateToProps)(Gold);

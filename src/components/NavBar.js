@@ -5,13 +5,13 @@ export default class NavBar extends Component {
   render() {
     return (
       <div className="navbar">
-        <NavLink to="/" exact>
+        <NavLink to="/Weapon" exact>
           Weapons
         </NavLink>
-        <NavLink to="/armor" exact>
+        <NavLink to="/Armor" exact>
           Armor
         </NavLink>
-        <NavLink to="Spells" exact>
+        <NavLink to="Spell" exact>
           Spells
         </NavLink>
       </div>
