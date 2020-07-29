@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Gold from "./Gold";
-import Cart from "./Cart";
+import CartIcon from "./CartIcon";
 import { Link } from "react-router-dom";
 
 export default class TopHeader extends Component {
@@ -11,7 +11,7 @@ export default class TopHeader extends Component {
         <Link to="/" className="logo">
           Item Shop
         </Link>
-        <Cart />
+        <CartIcon />
       </header>
     );
   }
