@@ -4,7 +4,9 @@ const initialState = {
   loading: false,
   items: [],
   error: "",
-  selectedItem: {},
+  //we initialize selected item with an itemName property so we can
+  //access it later to de select the selected item in App.js
+  selectedItem: { itemName: "" },
 };
 
 export default function itemsReducer(state = initialState, action) {

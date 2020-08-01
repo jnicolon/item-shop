@@ -18,9 +18,17 @@ class App extends React.Component {
   }
 
   render() {
-    const selectItem = (target) => {};
     return (
-      <div className="main-container" onClick={(e) => console.log(e.target)}>
+      <div
+        className="main-container"
+        //function designed to de-select the selected item when you click anywhere on the screen.
+        onClick={(e) =>
+          this.props.selectedItem.itemName !== "" &&
+          !e.target.className.includes("single-item") &&
+          !e.target.className.includes("single-item-selected") &&
+          this.props.selectItem({ itemName: "" })
+        }
+      >
         <BrowserRouter>
           <Header />
           <Switch>
@@ -40,6 +48,7 @@ class App extends React.Component {
 function mapStateToProps(state) {
   return {
     items: state.items,
+    selectedItem: state.items.selectedItem,
   };
 }
 

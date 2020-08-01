@@ -13,13 +13,19 @@ class SingleItem extends Component {
             ? "single-item single-item-selected"
             : "single-item"
         }
+        id={this.props.item.id}
+        onClick={() => {
+          this.props.selectItem(this.props.item);
+        }}
       >
         <div
-          className="single-item-top"
-          onClick={() => {
-            this.props.selectItem(this.props.item);
-          }}
-        >
+          className={
+            this.props.item.id === this.props.selectedItem.id
+              ? "single-item-transparent-selector single-item-selected"
+              : "single-item-transparent-selector"
+          }
+        ></div>
+        <div className="single-item-top">
           <img
             src={this.props.item.image.fields.file.url}
             alt={this.props.item.id}
