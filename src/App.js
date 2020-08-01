@@ -7,17 +7,20 @@ import Armor from "./pages/Armor";
 import Spells from "./pages/Spells";
 import Intro from "./pages/Intro";
 import CartPage from "./pages/CartPage";
+import SelectedItemInfo from "./components/SelectedItemInfo";
 import { connect } from "react-redux";
 import * as api from "./redux/middleWare/itemsApi";
+import * as itemActions from "./redux/actions/itemActions";
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.dispatch(api.fetchItems());
+    this.props.fetchItems();
   }
 
   render() {
+    const selectItem = (target) => {};
     return (
-      <div className="main-container">
+      <div className="main-container" onClick={(e) => console.log(e.target)}>
         <BrowserRouter>
           <Header />
           <Switch>
@@ -27,6 +30,7 @@ class App extends React.Component {
             <Route path="/Spell" component={Spells} />
             <Route path="/CartPage" component={CartPage} />
           </Switch>
+          <SelectedItemInfo />
         </BrowserRouter>
       </div>
     );
@@ -39,4 +43,11 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchItems: () => dispatch(api.fetchItems()),
+    selectItem: (item) => dispatch(itemActions.selectItem(item)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

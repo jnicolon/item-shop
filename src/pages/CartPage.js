@@ -1,23 +1,33 @@
 import React, { Component } from "react";
 import CartItem from "../components/CartItem";
 import Checkout from "../components/Checkout";
+import { connect } from "react-redux";
 
-export default class CartPage extends Component {
+class CartPage extends Component {
   render() {
+    const renderItem = () => {
+      return this.props.cart
+        .filter((item, index) => this.props.cart.indexOf(item) === index)
+        .map((item, index) => {
+          return <CartItem item={item} key={index} />;
+        });
+    };
     return (
       <>
         <h1 className="cart-title">Your Cart</h1>
         <div className="cart-container">
-          <div className="cart-page-items-container">
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
-          </div>
+          <div className="cart-page-items-container">{renderItem()}</div>
           <Checkout />
         </div>
       </>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    cart: state.cart.cart,
+  };
+}
+
+export default connect(mapStateToProps)(CartPage);

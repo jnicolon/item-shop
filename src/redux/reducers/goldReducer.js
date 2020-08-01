@@ -11,6 +11,11 @@ export default function buyGold(state = initialState, action) {
         ...state,
         goldTotal: state.goldTotal - action.payload,
       };
+    case types.RETURN_ITEM:
+      return {
+        ...state,
+        goldTotal: state.goldTotal + action.payload,
+      };
     default:
       return state;
   }

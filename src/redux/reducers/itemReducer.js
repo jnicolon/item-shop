@@ -4,6 +4,7 @@ const initialState = {
   loading: false,
   items: [],
   error: "",
+  selectedItem: {},
 };
 
 export default function itemsReducer(state = initialState, action) {
@@ -15,6 +16,7 @@ export default function itemsReducer(state = initialState, action) {
       };
     case types.FETCH_ITEMS_SUCCESS:
       return {
+        ...state,
         loading: false,
         items: action.payload,
         error: "",
@@ -24,6 +26,11 @@ export default function itemsReducer(state = initialState, action) {
         loading: false,
         users: [],
         error: action.payload,
+      };
+    case types.SELECT_ITEM:
+      return {
+        ...state,
+        selectedItem: action.payload,
       };
     default:
       return state;
