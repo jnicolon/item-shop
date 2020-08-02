@@ -29,6 +29,16 @@
   font-family: fantasy;
 }
 
+.intro {
+  height: 450px;
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px 0px 20px 0px;
+}
+
 .item-container {
   height: 450px;
   width: 500px;
@@ -186,19 +196,37 @@
   align-items: center;
 }
 
-.selected-item-image {
-  width: 50px;
+.selected-item-off {
+  display: none;
 }
 
-.selected-image-name {
+.selected-item-image {
+  width: 100px;
+  margin-top: 35px;
+}
+
+.selected-item-name {
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 30px;
+  text-align: center;
+  padding: 0px 20px 0px 20px;
+}
+
+.selected-item-description {
+  font-size: 15px;
+  text-align: center;
+  padding: 0px 20px 0px 20px;
+}
+
+.selected-item-stats-container {
+  margin-bottom: 30px;
 }
 
 .selected-item-stats-container,
 td {
-  border: 1 px solid white;
+  border: 1px solid white;
   width: 200px;
   padding: 5px;
   border-collapse: collapse;
+  font-size: 12px;
 }

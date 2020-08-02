@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import SelectedStatsContainer from "./SelectedStatsContainer";
 
 class SelectedItemInfo extends Component {
   render() {
     return (
-      <div className="selected-item">
+      <div
+        className={
+          this.props.selectedItem.image ? "selected-item" : "selected-item-off"
+        }
+      >
         <img
           className="selected-item-image"
           src={
@@ -14,31 +19,20 @@ class SelectedItemInfo extends Component {
           }
           alt=""
         />
-        <h4 className="selected-image-name">
+        <h4 className="selected-item-name">
           {this.props.selectedItem.itemName
             ? this.props.selectedItem.itemName
             : ""}
         </h4>
-        <h5>
+        <h5 className="selected-item-description">
           {this.props.selectedItem.description
             ? this.props.selectedItem.description
             : ""}
         </h5>
         <table className="selected-item-stats-container">
-          <tbody>
-            <tr>
-              <td>HP</td>
-              <td className="selected-item-stats-number">10hp</td>
-            </tr>
-            <tr>
-              <td>ATK</td>
-              <td className="selected-item-stats-number">50</td>
-            </tr>
-            <tr>
-              <td>MANA</td>
-              <td className="selected-item-stats-number">100</td>
-            </tr>
-          </tbody>
+          <SelectedStatsContainer
+            stats={this.props.selectedItem.hp ? this.props.selectedItem : ""}
+          />
         </table>
       </div>
     );
