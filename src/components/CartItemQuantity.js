@@ -5,6 +5,7 @@ import {
   removeItemFromCart,
 } from "../redux/actions/cartActions";
 import { buyItem, returnItem } from "../redux/actions/goldActions";
+import { toggleGoldModal } from "../redux/actions/modalActions";
 
 class CartItemQuantity extends Component {
   render() {
@@ -28,7 +29,7 @@ class CartItemQuantity extends Component {
           onClick={() =>
             this.props.goldTotal - this.props.item.price >= 0
               ? this.props.addItem(this.props.item)
-              : console.log("not enough gold!")
+              : this.props.toggleGoldModal(true)
           }
         >
           +
@@ -58,6 +59,9 @@ function mapDispatchToProps(dispatch) {
     removeItem: (item) => {
       dispatch(removeItemFromCart(item));
       dispatch(returnItem(item.price));
+    },
+    toggleGoldModal: (status) => {
+      dispatch(toggleGoldModal(status));
     },
   };
 }

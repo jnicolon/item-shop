@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { buyItem } from "../redux/actions/goldActions";
 import { addItemToCart } from "../redux/actions/cartActions";
 import * as itemActions from "../redux/actions/itemActions";
+import { toggleGoldModal } from "../redux/actions/modalActions";
 
 class BuyBtn extends Component {
   render() {
@@ -13,7 +14,7 @@ class BuyBtn extends Component {
           onClick={() =>
             this.props.goldTotal - this.props.item.price >= 0
               ? this.props.buyItem(this.props.item)
-              : console.log("not enough gold!")
+              : this.props.toggleGoldModal(true)
           }
         >
           Buy
@@ -38,6 +39,9 @@ function mapDispatchToProps(dispatch) {
     },
     selectItem: (item) => {
       dispatch(itemActions.selectItem(item));
+    },
+    toggleGoldModal: (status) => {
+      dispatch(toggleGoldModal(status));
     },
   };
 }

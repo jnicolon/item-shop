@@ -12,6 +12,8 @@ import { connect } from "react-redux";
 import * as api from "./redux/middleWare/itemsApi";
 import * as itemActions from "./redux/actions/itemActions";
 import BattlePage from "./pages/BattlePage";
+import GoldModal from "./components/GoldModal";
+import { toggleGoldModal } from "./redux/actions/modalActions";
 
 class App extends React.Component {
   componentDidMount() {
@@ -19,19 +21,30 @@ class App extends React.Component {
   }
 
   render() {
+    //function designed to de-select the selected item when you click anywhere on the screen.
+    const deSelectItem = (e) => {
+      this.props.selectedItem.itemName !== "" &&
+        !e.target.className.includes("single-item") &&
+        !e.target.className.includes("single-item-selected") &&
+        this.props.selectItem({ itemName: "" });
+    };
+
+    const closeModal = (e) => {
+      e.target.className.includes("gold-modal-on") &&
+        this.props.toggleGoldModal(false);
+    };
+
+    const handleClick = (e) => {
+      deSelectItem(e);
+      closeModal(e);
+    };
+
     return (
-      <div
-        className="main-container"
-        //function designed to de-select the selected item when you click anywhere on the screen.
-        onClick={(e) =>
-          this.props.selectedItem.itemName !== "" &&
-          !e.target.className.includes("single-item") &&
-          !e.target.className.includes("single-item-selected") &&
-          this.props.selectItem({ itemName: "" })
-        }
-      >
+      <div className="main-container" onClick={(e) => handleClick(e)}>
         <BrowserRouter>
+          <GoldModal />
           <Header />
+
           <Switch>
             <Route exact path="/" component={Intro} />
             <Route path="/Weapon" component={Weapons} />
@@ -58,6 +71,7 @@ function mapDispatchToProps(dispatch) {
   return {
     fetchItems: () => dispatch(api.fetchItems()),
     selectItem: (item) => dispatch(itemActions.selectItem(item)),
+    toggleGoldModal: (status) => dispatch(toggleGoldModal(status)),
   };
 }
 
