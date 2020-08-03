@@ -31,13 +31,31 @@
 }
 
 .intro {
-  height: 450px;
+  position: absolute;
+  height: 600px;
   width: 800px;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   padding: 20px 0px 20px 0px;
+  background-image: linear-gradient(
+    -90deg,
+    rgb(118, 202, 235),
+    rgb(0, 153, 255)
+  );
+  top: 0;
+  left: 0;
+}
+
+.intro h4 {
+  width: 50%;
+  margin: 30px;
+  text-align: center;
+}
+
+.intro h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .item-container {
@@ -183,6 +201,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 .selected-item {

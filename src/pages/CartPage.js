@@ -14,7 +14,7 @@ class CartPage extends Component {
     };
     return (
       <>
-        <h1 className="cart-title">Your Cart</h1>
+        {/* <h1 className="cart-title"></h1> */}
         <div className="cart-container">
           <div className="cart-page-items-container">{renderItem()}</div>
           <Checkout />

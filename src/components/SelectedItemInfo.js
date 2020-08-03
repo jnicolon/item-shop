@@ -29,11 +29,11 @@ class SelectedItemInfo extends Component {
             ? this.props.selectedItem.description
             : ""}
         </h5>
-        <table className="selected-item-stats-container">
+        <div>
           <SelectedStatsContainer
             stats={this.props.selectedItem.hp ? this.props.selectedItem : ""}
           />
-        </table>
+        </div>
       </div>
     );
   }

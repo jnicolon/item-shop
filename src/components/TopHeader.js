@@ -9,7 +9,7 @@ export default class TopHeader extends Component {
       <header className="top-header">
         <Gold />
         <Link to="/" className="logo">
-          Item Shop
+          ItemShop
         </Link>
         <CartIcon />
       </header>
