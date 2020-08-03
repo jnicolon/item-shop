@@ -25,7 +25,11 @@ class CartItemQuantity extends Component {
         </button>
         <button
           className="btn-quantity"
-          onClick={() => this.props.addItem(this.props.item)}
+          onClick={() =>
+            this.props.goldTotal - this.props.item.price >= 0
+              ? this.props.addItem(this.props.item)
+              : console.log("not enough gold!")
+          }
         >
           +
         </button>
@@ -41,6 +45,7 @@ class CartItemQuantity extends Component {
 function mapStateToProps(state) {
   return {
     cart: state.cart.cart,
+    goldTotal: state.goldTotal.goldTotal,
   };
 }
 
