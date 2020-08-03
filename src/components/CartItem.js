@@ -6,7 +6,10 @@ export default class CartItem extends Component {
     return (
       <div className="cart-item-container">
         <div className="cart-item-image">
-          <img alt="item-img" src={this.props.item.image.fields.file.url}></img>
+          <img
+            alt="item-img"
+            src={this.props.item.image && this.props.item.image.fields.file.url}
+          ></img>
         </div>
         <div className="cart-item-info">
           <h3 className="cart-item-name">{this.props.item.itemName}</h3>

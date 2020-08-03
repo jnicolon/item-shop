@@ -11,6 +11,7 @@ import SelectedItemInfo from "./components/SelectedItemInfo";
 import { connect } from "react-redux";
 import * as api from "./redux/middleWare/itemsApi";
 import * as itemActions from "./redux/actions/itemActions";
+import BattlePage from "./pages/BattlePage";
 
 class App extends React.Component {
   componentDidMount() {
@@ -37,6 +38,7 @@ class App extends React.Component {
             <Route path="/Armor" component={Armor} />
             <Route path="/Spell" component={Spells} />
             <Route path="/CartPage" component={CartPage} />
+            <Route path="/BattlePage" component={BattlePage} />
           </Switch>
           <SelectedItemInfo />
         </BrowserRouter>

@@ -1,7 +1,7 @@
 import * as types from "../actions/actionTypes";
 
 const initialState = {
-  goldTotal: 500,
+  goldTotal: 50,
 };
 
 export default function buyGold(state = initialState, action) {

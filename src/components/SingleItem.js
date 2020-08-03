@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { buyItem } from "../redux/actions/goldActions";
-import { addItemToCart } from "../redux/actions/cartActions";
+
 import * as itemActions from "../redux/actions/itemActions";
+import BuyBtn from "./BuyBtn";
 
 class SingleItem extends Component {
   render() {
@@ -34,12 +34,7 @@ class SingleItem extends Component {
         </div>
         <div className="single-item-price-container">
           <p className="single-item-price">{this.props.item.price} gold</p>
-          <button
-            className="single-item-btn"
-            onClick={() => this.props.buyItem(this.props.item)}
-          >
-            Buy
-          </button>
+          <BuyBtn item={this.props.item} />
         </div>
       </div>
     );
@@ -49,15 +44,12 @@ class SingleItem extends Component {
 function mapStateToProps(state) {
   return {
     selectedItem: state.items.selectedItem,
+    goldTotal: state.goldTotal.goldTotal,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    buyItem: (item) => {
-      dispatch(buyItem(item.price));
-      dispatch(addItemToCart(item));
-    },
     selectItem: (item) => {
       dispatch(itemActions.selectItem(item));
     },
