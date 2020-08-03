@@ -10,7 +10,11 @@ class BuyBtn extends Component {
       <div>
         <button
           className="single-item-btn"
-          onClick={() => this.props.buyItem(this.props.item)}
+          onClick={() =>
+            this.props.goldTotal - this.props.item.price >= 0
+              ? this.props.buyItem(this.props.item)
+              : console.log("not enough gold!")
+          }
         >
           Buy
         </button>
@@ -22,6 +26,7 @@ class BuyBtn extends Component {
 function mapStateToProps(state) {
   return {
     selectedItem: state.items.selectedItem,
+    goldTotal: state.goldTotal.goldTotal,
   };
 }
 
