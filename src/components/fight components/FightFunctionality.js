@@ -36,18 +36,21 @@ export function fight(player, enemy) {
       `${player.name} attacked ${enemy.name} and dealt ${player.atk} damage. ${enemy.name} has ${enemy.hp} hp left`,
     ];
     //we check if it's zero and if so we re start the function here
-    enemy.hp <= 0
-      ? fight(player, enemy)
-      : //if not we let the enemy attack back
-        (player.hp = enemy.attack(player));
-    battleLog.push(
-      `${enemy.name} attacked ${player.name} and dealt ${enemy.atk} damage. ${player.name} has ${player.hp} hp left`
-    );
-    return fight(player, enemy);
+    if (enemy.hp <= 0) {
+      return fight(player, enemy);
+    }
+    //if not we let the enemy attack back
+    else {
+      player.hp = enemy.attack(player);
+      battleLog.push(
+        `${enemy.name} attacked ${player.name} and dealt ${enemy.atk} damage. ${player.name} has ${player.hp} hp left`
+      );
+      return fight(player, enemy);
+    }
   }
 }
 
-//function to calculate the total stats that it's in the cart
+//calculate the total stats that it's in the cart
 export function playerStats(cart) {
   const hp = cart.reduce((total, item) => {
     return total + item.hp;

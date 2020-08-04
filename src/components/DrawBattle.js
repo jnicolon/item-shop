@@ -17,14 +17,13 @@ class Battle extends Component {
   componentDidMount() {
     const pStats = playerStats(this.props.cart);
 
-    console.log(pStats);
-    // const fighter = new Character("Fighter", 20, 40, 0);
+    const fighter = new Character("Fighter", 20, 40, 0);
 
-    // const player = new Character("Player", playerHp, playerAtk, 0);
+    const player = new Character("Player", pStats.hp, pStats.atk, 0);
 
-    // this.setState({ firstBattle: fight(player, fighter) });
+    this.setState({ firstBattle: fight(player, fighter) });
 
-    // console.log(fighter, player);
+    console.log(fighter, player);
   }
 
   componentDidUpdate() {
