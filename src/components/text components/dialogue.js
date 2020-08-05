@@ -10,19 +10,23 @@ export const level1Intro = [
   {
     character: "tavernKeeper",
     image: tavernKeeper,
+    dialogue: "Do you know anything about weapons and equipment?",
+  },
+  {
+    character: "tavernKeeper",
+    image: tavernKeeper,
+    dialogue: "You do???? WOW what are the chances!",
+  },
+  {
+    character: "tavernKeeper",
+    image: tavernKeeper,
     dialogue:
-      "Lots of heroes pass this way and they could use someone to reccomend them what to buy",
+      "As it happens, lots of heroes pass this way and they could use someone to reccomend them what to buy",
   },
   {
     character: "tavernKeeper",
     image: tavernKeeper,
     dialogue: "Maybe that someone is you?",
-  },
-  {
-    character: "tavernKeeper",
-    image: tavernKeeper,
-    dialogue:
-      "Lots of heroes pass this way and they could use someone to reccomend them what to buy",
   },
   {
     character: "tavernKeeper",

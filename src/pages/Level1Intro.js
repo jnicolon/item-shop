@@ -7,7 +7,6 @@ export default class Intro extends Component {
       <>
         <div className="intro">
           <DrawText />
-          <Link to="/level1intro">Go forth!</Link>
         </div>
       </>
     );
