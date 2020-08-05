@@ -77,8 +77,7 @@
 }
 
 .draw-txt-image {
-  width: 150px;
-  height: 150;
+  height: 150px;
   overflow: hidden;
   margin-bottom: 10px;
 }

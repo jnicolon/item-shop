@@ -43,7 +43,7 @@ class DrawText extends Component {
 
 function mapStateToProps(state) {
   return {
-    currentSlide: state.txt.currentSlide,
+    currentSlide: state.txtIntro.currentSlide,
   };
 }
 

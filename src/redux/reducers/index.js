@@ -3,14 +3,16 @@ import items from "./itemReducer";
 import goldTotal from "./goldReducer";
 import cart from "./cartReducer";
 import modal from "./modalReducers";
-import txt from "./textReducers";
+import txtIntro from "./textReducers";
+import level from "./levelReducers";
 
 const rootReducer = combineReducers({
   items,
   goldTotal,
   cart,
   modal,
-  txt,
+  txtIntro,
+  level,
 });
 
 export default rootReducer;
