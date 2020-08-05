@@ -14,6 +14,8 @@ import * as itemActions from "./redux/actions/itemActions";
 import BattlePage from "./pages/BattlePage";
 import GoldModal from "./components/GoldModal";
 import { toggleGoldModal } from "./redux/actions/modalActions";
+import Level1Intro from "./pages/Level1Intro";
+import Level2Intro from "./pages/Level2Intro";
 
 class App extends React.Component {
   componentDidMount() {
@@ -47,6 +49,8 @@ class App extends React.Component {
 
           <Switch>
             <Route exact path="/" component={Intro} />
+            <Route exact path="/level1intro" component={Level1Intro} />
+            <Route exact path="/level2intro" component={Level2Intro} />
             <Route path="/Weapon" component={Weapons} />
             <Route path="/Armor" component={Armor} />
             <Route path="/Spell" component={Spells} />

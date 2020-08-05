@@ -8,3 +8,4 @@ export const REMOVE_ITEM_FROM_CART = "REMOVE_ITEM_FROM_CART";
 export const CART_TOTAL = "CART_TOTAL";
 export const SELECT_ITEM = "SELECT_ITEM";
 export const TOGGLE_GOLD_MODAL = "TOGGLE_GOLD_MODAL";
+export const NEXT_TXT_SLIDE = "NEXT_TXT_SLIDE";

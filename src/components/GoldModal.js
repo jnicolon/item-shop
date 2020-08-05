@@ -6,9 +6,7 @@ class GoldModal extends Component {
     return (
       <div
         className={
-          this.props.goldModal
-            ? "gold-modal-bg gold-modal-on"
-            : "gold-modal-off"
+          this.props.goldModal ? "gold-modal-bg display-on" : "display-off"
         }
       >
         <div className="gold-modal-sign">

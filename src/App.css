@@ -252,11 +252,11 @@ td {
   font-size: 12px;
 }
 
-.gold-modal-on {
+.display-on {
   display: inline;
 }
 
-.gold-modal-off {
+.display-off {
   display: none;
 }
 
