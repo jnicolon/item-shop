@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 class DrawText extends Component {
   render() {
-    const btnAction = (index) => {
-      if (level1Intro.length - 1 === index) {
+    const chooseBtn = () => {
+      if (level1Intro.length - 1 === this.props.currentSlide) {
         return <Link to="/Weapon">Go forth!</Link>;
       } else {
         return <button onClick={() => this.props.nextSlide()}>Next</button>;
@@ -15,19 +15,27 @@ class DrawText extends Component {
     };
 
     return (
-      <div>
+      <div className="draw-text-container">
         {level1Intro.map((object, index) => {
           return (
             <div
+              key={index}
               className={
-                index === this.props.currentSlide ? "display-on" : "display-off"
+                index === this.props.currentSlide
+                  ? "draw-txt-container display-on"
+                  : "draw-txt-container display-off"
               }
             >
+              <img
+                className="draw-txt-image"
+                src={object.image}
+                alt={index}
+              ></img>
               <h3>{object.dialogue}</h3>
-              {btnAction(index)}
             </div>
           );
         })}
+        {chooseBtn()}
       </div>
     );
   }

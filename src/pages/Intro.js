@@ -10,7 +10,7 @@ export default class Intro extends Component {
           WeaponMaster but today you will be known as...
         </h4>
         <h1>MEDIEVAL PERSONAL SHOPPER</h1>
-        <Link to="/Weapon">Go forth!</Link>
+        <Link to="/level1intro">Go forth!</Link>
       </div>
     );
   }
