@@ -32,7 +32,7 @@ class App extends React.Component {
     };
 
     const closeModal = (e) => {
-      e.target.className.includes("gold-modal-on") &&
+      e.target.className.includes("display-on") &&
         this.props.toggleGoldModal(false);
     };
 
