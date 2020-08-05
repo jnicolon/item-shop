@@ -2,6 +2,12 @@ import * as types from "./actionTypes";
 
 export function changeLevel() {
   return {
-    types: types.CHANGE_LEVEL,
+    type: types.NEXT_LEVEL,
+  };
+}
+
+export function setCurrentLevel() {
+  return {
+    type: types.SET_CURRENT_LEVEL,
   };
 }

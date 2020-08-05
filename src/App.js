@@ -8,18 +8,19 @@ import Spells from "./pages/Spells";
 import Intro from "./pages/Intro";
 import CartPage from "./pages/CartPage";
 import SelectedItemInfo from "./components/SelectedItemInfo";
+import LevelIntro from "./pages/LevelIntro";
 import { connect } from "react-redux";
 import * as api from "./redux/middleWare/itemsApi";
 import * as itemActions from "./redux/actions/itemActions";
 import BattlePage from "./pages/BattlePage";
 import GoldModal from "./components/GoldModal";
 import { toggleGoldModal } from "./redux/actions/modalActions";
-import Level1Intro from "./pages/Level1Intro";
-import Level2Intro from "./pages/Level2Intro";
+import { setCurrentLevel } from "./redux/actions/levelActions";
 
 class App extends React.Component {
   componentDidMount() {
     this.props.fetchItems();
+    this.props.setCurrentLevel();
   }
 
   render() {
@@ -49,8 +50,7 @@ class App extends React.Component {
 
           <Switch>
             <Route exact path="/" component={Intro} />
-            <Route exact path="/level1intro" component={Level1Intro} />
-            <Route exact path="/level2intro" component={Level2Intro} />
+            <Route exact path="/levelIntro" component={LevelIntro} />
             <Route path="/Weapon" component={Weapons} />
             <Route path="/Armor" component={Armor} />
             <Route path="/Spell" component={Spells} />
@@ -76,6 +76,7 @@ function mapDispatchToProps(dispatch) {
     fetchItems: () => dispatch(api.fetchItems()),
     selectItem: (item) => dispatch(itemActions.selectItem(item)),
     toggleGoldModal: (status) => dispatch(toggleGoldModal(status)),
+    setCurrentLevel: () => dispatch(setCurrentLevel()),
   };
 }
 

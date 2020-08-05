@@ -10,3 +10,4 @@ export const SELECT_ITEM = "SELECT_ITEM";
 export const TOGGLE_GOLD_MODAL = "TOGGLE_GOLD_MODAL";
 export const NEXT_TXT_SLIDE = "NEXT_TXT_SLIDE";
 export const NEXT_LEVEL = "NEXT_LEVEL";
+export const SET_CURRENT_LEVEL = "SET_CURRENT_LEVEL";

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { level1Intro } from "../text components/dialogue";
 import { connect } from "react-redux";
 import { nextSlide } from "../../redux/actions/textActions";
 import { Link } from "react-router-dom";
@@ -7,7 +6,10 @@ import { Link } from "react-router-dom";
 class DrawText extends Component {
   render() {
     const chooseBtn = () => {
-      if (level1Intro.length - 1 === this.props.currentSlide) {
+      if (
+        this.props.currentLevelDialogue.length - 1 ===
+        this.props.currentSlide
+      ) {
         return <Link to="/Weapon">Go forth!</Link>;
       } else {
         return <button onClick={() => this.props.nextSlide()}>Next</button>;
@@ -16,7 +18,7 @@ class DrawText extends Component {
 
     return (
       <div className="draw-text-container">
-        {level1Intro.map((object, index) => {
+        {this.props.currentLevelDialogue.map((object, index) => {
           return (
             <div
               key={index}
@@ -44,6 +46,7 @@ class DrawText extends Component {
 function mapStateToProps(state) {
   return {
     currentSlide: state.txtIntro.currentSlide,
+    currentLevelDialogue: state.level.currentLevel.introDialogue,
   };
 }
 

@@ -1,4 +1,4 @@
-import chillBrad from "../../imgs/chillBrad.png";
+import hero1 from "../../imgs/chillBrad.png";
 import tavernKeeper from "../../imgs/tavern.png";
 
 export const level1Intro = [
@@ -34,33 +34,44 @@ export const level1Intro = [
     dialogue: "Look, here comes your first customer.",
   },
   {
-    character: "chillBrad",
-    image: chillBrad,
+    character: "hero1",
+    image: hero1,
     dialogue: "Sup, i'm chill brad.",
   },
   {
-    character: "chillBrad",
-    image: chillBrad,
+    character: "hero1",
+    image: hero1,
     dialogue: "This fucking tiny orc stole my pants.",
   },
   {
-    character: "chillBrad",
-    image: chillBrad,
+    character: "hero1",
+    image: hero1,
     dialogue: "I want to fuck him up but I've never been in a fight in my life",
   },
   {
-    character: "chillBrad",
-    image: chillBrad,
-    dialogue: "Can you buy some shit for me? I have...",
+    character: "hero1",
+    image: hero1,
+    dialogue: "Can you buy some shit for me? Like real nice things",
+  },
+
+  {
+    character: "hero1",
+    image: hero1,
+    dialogue: "Whatever you need me to get to crush him",
   },
   {
-    character: "chillBrad",
-    image: chillBrad,
-    dialogue: "...15 gold",
+    character: "hero1",
+    image: hero1,
+    dialogue: "Seriously, don't hold any expenses.",
   },
   {
-    character: "chillBrad",
-    image: chillBrad,
+    character: "hero1",
+    image: hero1,
+    dialogue: "I have 11 gold",
+  },
+  {
+    character: "hero1",
+    image: hero1,
     dialogue: "Thanks bro.",
   },
 ];
