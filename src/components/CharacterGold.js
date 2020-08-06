@@ -2,12 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 
 function Gold(props) {
-  return <div>Gold: {props.goldTotal}</div>;
+  return <h3>Gold left: {props.currentGold}</h3>;
 }
 
 function mapStateToProps(state) {
   return {
-    goldTotal: state.goldTotal.goldTotal,
+    currentGold: state.gold.currentGold,
   };
 }
 

@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import CharacterGold from "./CharacterGold";
-import HeroInfo from "./HeroInfo.js";
-import EnemyInfo from "./EnemyInfo.js";
+import EnemyInfo from "./EnemyInfo";
 
-class FightDetailsHeader extends Component {
+class FightDetailsHeaderLeft extends Component {
   render() {
     return (
       <div className="fight-details-header-container">
-        <HeroInfo />
         <EnemyInfo />
-        <CharacterGold />
       </div>
     );
   }
@@ -22,4 +18,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(FightDetailsHeader);
+export default connect(mapStateToProps)(FightDetailsHeaderLeft);

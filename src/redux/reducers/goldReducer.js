@@ -1,7 +1,7 @@
 import * as types from "../actions/actionTypes";
 
 const initialState = {
-  goldTotal: 50,
+  currentGold: 0,
 };
 
 export default function buyGold(state = initialState, action) {
@@ -9,12 +9,12 @@ export default function buyGold(state = initialState, action) {
     case types.BUY_ITEM:
       return {
         ...state,
-        goldTotal: state.goldTotal - action.payload,
+        currentGold: state.currentGold - action.payload,
       };
     case types.RETURN_ITEM:
       return {
         ...state,
-        goldTotal: state.goldTotal + action.payload,
+        currentGold: state.currentGold + action.payload,
       };
     default:
       return state;

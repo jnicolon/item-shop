@@ -44,7 +44,7 @@ class SingleItem extends Component {
 function mapStateToProps(state) {
   return {
     selectedItem: state.items.selectedItem,
-    goldTotal: state.goldTotal.goldTotal,
+    goldTotal: state.gold.currentGold,
   };
 }
 

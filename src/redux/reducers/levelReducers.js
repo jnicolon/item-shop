@@ -3,7 +3,7 @@ import { levels } from "../../components/levelComponents/levelsInfo";
 
 const initialState = {
   currentLevelNumber: 1,
-  currentLevel: [],
+  currentLevel: { level: 0, hero: { img: "" } },
   allLevels: [...levels],
 };
 
