@@ -16,13 +16,13 @@ import BattlePage from "./pages/BattlePage";
 import GoldModal from "./components/GoldModal";
 import { toggleGoldModal } from "./redux/actions/modalActions";
 import { setCurrentLevel } from "./redux/actions/levelActions";
+import IntroFightDetails from "./pages/LevelIntroFightDetails";
 
 class App extends React.Component {
   componentDidMount() {
     this.props.fetchItems();
     this.props.setCurrentLevel();
   }
-
   render() {
     //function designed to de-select the selected item when you click anywhere on the screen.
     const deSelectItem = (e) => {
@@ -56,6 +56,7 @@ class App extends React.Component {
             <Route path="/Spell" component={Spells} />
             <Route path="/CartPage" component={CartPage} />
             <Route path="/BattlePage" component={BattlePage} />
+            <Route path="/introFightDetails" component={IntroFightDetails} />
           </Switch>
           <SelectedItemInfo />
         </BrowserRouter>
@@ -68,6 +69,7 @@ function mapStateToProps(state) {
   return {
     items: state.items,
     selectedItem: state.items.selectedItem,
+    currentHeroGold: state.level.currentLevel.hero.gold,
   };
 }
 

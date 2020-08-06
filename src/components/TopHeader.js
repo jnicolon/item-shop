@@ -8,10 +8,11 @@ export default class TopHeader extends Component {
   render() {
     return (
       <header className="top-header">
-        <FightDetailsHeaderLeft />
-        <Link to="/" className="logo">
+        <Link to="/Weapon" className="logo">
           ItemShop
         </Link>
+        <FightDetailsHeaderLeft />
+
         <FightDetailsHeaderRight />
       </header>
     );

@@ -3,25 +3,56 @@ import { connect } from "react-redux";
 
 class HeroInfo extends Component {
   render() {
-    console.log(this.props.currentLevel);
     return (
-      <div className="hero-info-container">
-        <div className="hero-info-img-container">
+      <div className="enemy-info-container">
+        <div className="enemy-info-img-container">
           <img
-            className="hero-info-img"
+            className="enemy-info-img"
             src={
-              this.props.currentLevel ? this.props.currentLevel.hero.img : ""
+              this.props.currentLevel.enemy
+                ? this.props.currentLevel.enemy.img
+                : ""
             }
-            alt="hero-info-img"
+            alt="enemy-info-img"
           ></img>
         </div>
-        <div className="hero-stats-container">
-          <h3 className="hero-type">Hero</h3>
-          <h6 className="hero-name">{this.props.currentLevel.hero.name}</h6>
-          <h6 className="hero-gold">Gold to spend:</h6>
-          <h6 className="hero-gold">
-            {this.props.currentLevel.hero.gold} gold
+        <div className="enemy-name-container">
+          <h3 className="enemy-type">Enemy</h3>
+          <h6 className="enemy-name">
+            {this.props.currentLevel.enemy
+              ? this.props.currentLevel.enemy.name
+              : ""}
           </h6>
+        </div>
+        <div>
+          <table className="enemy-stats-container">
+            <tbody>
+              <tr>
+                <td>HP:</td>
+                <td>
+                  {this.props.currentLevel.enemy
+                    ? this.props.currentLevel.enemy.stats.hp
+                    : ""}
+                </td>
+              </tr>
+              <tr>
+                <td>ATK:</td>
+                <td>
+                  {this.props.currentLevel.enemy
+                    ? this.props.currentLevel.enemy.stats.atk
+                    : ""}
+                </td>
+              </tr>
+              <tr>
+                <td>MANA:</td>
+                <td>
+                  {this.props.currentLevel.enemy
+                    ? this.props.currentLevel.enemy.stats.mana
+                    : ""}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     );

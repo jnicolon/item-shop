@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { setCurrentGold } from "../redux/actions/goldActions";
 
 class HeroInfo extends Component {
   render() {
-    console.log(this.props.currentLevel);
     return (
       <div className="hero-info-container">
         <div className="hero-info-img-container">
@@ -35,4 +35,11 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(HeroInfo);
+function mapDispatchToProps(dispatch) {
+  return {
+    setCurrentGold: (currentHeroGold) =>
+      dispatch(setCurrentGold(currentHeroGold)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeroInfo);

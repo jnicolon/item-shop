@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { nextSlide } from "../../redux/actions/textActions";
 import { Link } from "react-router-dom";
+import { setCurrentGold } from "../../redux/actions/goldActions";
 
 class DrawText extends Component {
   render() {
@@ -10,7 +11,16 @@ class DrawText extends Component {
         this.props.currentLevelDialogue.length - 1 ===
         this.props.currentSlide
       ) {
-        return <Link to="/Weapon">Go forth!</Link>;
+        return (
+          <Link
+            onClick={() =>
+              this.props.setCurrentGold(this.props.currentHeroGold)
+            }
+            to="/introFightDetails"
+          >
+            Go forth!
+          </Link>
+        );
       } else {
         return <button onClick={() => this.props.nextSlide()}>Next</button>;
       }
@@ -47,6 +57,7 @@ function mapStateToProps(state) {
   return {
     currentSlide: state.txtIntro.currentSlide,
     currentLevelDialogue: state.level.currentLevel.introDialogue,
+    currentHeroGold: state.level.currentLevel.hero.gold,
   };
 }
 
@@ -55,6 +66,8 @@ function mapDispatchToProps(dispatch) {
     nextSlide: (level) => {
       dispatch(nextSlide(level));
     },
+    setCurrentGold: (currentHeroGold) =>
+      dispatch(setCurrentGold(currentHeroGold)),
   };
 }
 

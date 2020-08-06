@@ -16,6 +16,11 @@ export default function buyGold(state = initialState, action) {
         ...state,
         currentGold: state.currentGold + action.payload,
       };
+    case types.SET_CURRENT_GOLD:
+      return {
+        ...state,
+        currentGold: action.payload,
+      };
     default:
       return state;
   }

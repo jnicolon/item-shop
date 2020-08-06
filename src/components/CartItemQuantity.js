@@ -46,7 +46,7 @@ class CartItemQuantity extends Component {
 function mapStateToProps(state) {
   return {
     cart: state.cart.cart,
-    goldTotal: state.goldTotal.goldTotal,
+    goldTotal: state.gold.currentGold,
   };
 }
 

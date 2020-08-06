@@ -12,3 +12,9 @@ export function returnItem(itemPrice) {
     payload: itemPrice,
   };
 }
+export function setCurrentGold(currentHeroGold) {
+  return {
+    type: types.SET_CURRENT_GOLD,
+    payload: currentHeroGold,
+  };
+}
