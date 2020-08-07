@@ -1,17 +1,19 @@
 import React, { Component } from "react";
-import Gold from "./Gold";
-import CartIcon from "./CartIcon";
+import FightDetailsHeaderLeft from "./FightDetailsHeaderLeft";
+import FightDetailsHeaderRight from "./FightDetailsHeaderRight";
+
 import { Link } from "react-router-dom";
 
 export default class TopHeader extends Component {
   render() {
     return (
       <header className="top-header">
-        <Gold />
-        <Link to="/" className="logo">
-          Item Shop
+        <Link to="/Weapon" className="logo">
+          ItemShop
         </Link>
-        <CartIcon />
+        <FightDetailsHeaderLeft />
+
+        <FightDetailsHeaderRight />
       </header>
     );
   }

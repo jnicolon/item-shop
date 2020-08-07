@@ -19,3 +19,10 @@ export const fetchItemsFailure = (error) => {
     payload: error,
   };
 };
+
+export const selectItem = (item) => {
+  return {
+    type: types.SELECT_ITEM,
+    payload: item,
+  };
+};

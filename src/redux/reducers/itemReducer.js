@@ -4,6 +4,9 @@ const initialState = {
   loading: false,
   items: [],
   error: "",
+  //we initialize selected item with an itemName property so we can
+  //access it later to de select the selected item in App.js
+  selectedItem: { itemName: "" },
 };
 
 export default function itemsReducer(state = initialState, action) {
@@ -15,6 +18,7 @@ export default function itemsReducer(state = initialState, action) {
       };
     case types.FETCH_ITEMS_SUCCESS:
       return {
+        ...state,
         loading: false,
         items: action.payload,
         error: "",
@@ -24,6 +28,11 @@ export default function itemsReducer(state = initialState, action) {
         loading: false,
         users: [],
         error: action.payload,
+      };
+    case types.SELECT_ITEM:
+      return {
+        ...state,
+        selectedItem: action.payload,
       };
     default:
       return state;
