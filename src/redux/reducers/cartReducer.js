@@ -26,6 +26,11 @@ export default function cartReducers(state = initialState, action) {
       //splice the first iteration of the item we want to remove
       cartCopy2.splice(itemIndex, 1);
       return { ...state, cart: [...cartCopy2] };
+    case types.CLEAR_CART:
+      return {
+        ...state,
+        cart: [],
+      };
     default:
       return state;
   }

@@ -12,7 +12,7 @@ export default function nextLevel(state = initialState, action) {
     case types.NEXT_LEVEL:
       return {
         ...state,
-        currentLevelNumber: state.currentLevel + 1,
+        currentLevelNumber: state.currentLevelNumber + 1,
       };
     case types.SET_CURRENT_LEVEL:
       return {

@@ -10,6 +10,10 @@ export default function textReducers(state = initialState, action) {
       return {
         currentSlide: state.currentSlide + 1,
       };
+    case types.RESET_SLIDES:
+      return {
+        currentSlide: 0,
+      };
     default:
       return state;
   }

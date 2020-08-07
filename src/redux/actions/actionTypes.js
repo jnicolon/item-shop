@@ -12,3 +12,5 @@ export const NEXT_TXT_SLIDE = "NEXT_TXT_SLIDE";
 export const NEXT_LEVEL = "NEXT_LEVEL";
 export const SET_CURRENT_LEVEL = "SET_CURRENT_LEVEL";
 export const SET_CURRENT_GOLD = "SET_CURRENT_GOLD";
+export const RESET_SLIDES = "RESET_SLIDES";
+export const CLEAR_CART = "CLEAR_CART";

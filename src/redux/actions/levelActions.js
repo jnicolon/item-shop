@@ -1,6 +1,6 @@
 import * as types from "./actionTypes";
 
-export function changeLevel() {
+export function changeNextLevel() {
   return {
     type: types.NEXT_LEVEL,
   };

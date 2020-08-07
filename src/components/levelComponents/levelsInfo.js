@@ -10,7 +10,7 @@ export const levels = [
     level: 1,
     hero: {
       name: "Chill Brad",
-      gold: 15,
+      gold: 20,
       img: chillBradImg,
     },
     enemy: {

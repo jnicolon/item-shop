@@ -19,3 +19,9 @@ export function cartTotal() {
     type: types.CART_TOTAL,
   };
 }
+
+export function clearCart() {
+  return {
+    type: types.CLEAR_CART,
+  };
+}

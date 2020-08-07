@@ -14,27 +14,28 @@ export class Character {
 
 //recursive function for the fights.
 //empty array to record all the actions of the auto battle
-let battleLog = [];
+let battle = { battleLog: [], winner: false };
 //we pass two characters one for the player, one for the enemy
 export function fight(player, enemy) {
   //when one of the two has zero hp,  .
   if (player.hp <= 0 || enemy.hp <= 0) {
     if (player.hp <= 0) {
       //we add who wins to the battle log
-      battleLog.push(`${enemy.name} defeated ${player.name}`);
+      battle.battleLog.push(`${enemy.name} defeated ${player.name}`);
     } else if (enemy.hp <= 0) {
-      battleLog.push(`${player.name} defeated ${enemy.name}`);
+      battle.battleLog.push(`${player.name} defeated ${enemy.name}`);
+      battle.winner = true;
     }
     //and return the battle log
-    return battleLog;
+    console.log(battle);
+    return battle;
   } else {
     //we attack and set the new hp of the enemy.
     enemy.hp = player.attack(enemy);
     //we add the action to the battle log.
-    battleLog = [
-      ...battleLog,
-      `${player.name} attacked ${enemy.name} and dealt ${player.atk} damage. ${enemy.name} has ${enemy.hp} hp left`,
-    ];
+    battle.battleLog.push(
+      `${player.name} attacked ${enemy.name} and dealt ${player.atk} damage. ${enemy.name} has ${enemy.hp} hp left`
+    );
     //we check if it's zero and if so we re start the function here
     if (enemy.hp <= 0) {
       return fight(player, enemy);
@@ -42,7 +43,7 @@ export function fight(player, enemy) {
     //if not we let the enemy attack back
     else {
       player.hp = enemy.attack(player);
-      battleLog.push(
+      battle.battleLog.push(
         `${enemy.name} attacked ${player.name} and dealt ${enemy.atk} damage. ${player.name} has ${player.hp} hp left`
       );
       return fight(player, enemy);

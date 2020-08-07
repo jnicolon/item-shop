@@ -25,7 +25,7 @@ class DrawText extends Component {
         return <button onClick={() => this.props.nextSlide()}>Next</button>;
       }
     };
-
+    console.log(this.props.level);
     return (
       <div className="draw-text-container">
         {this.props.currentLevelDialogue.map((object, index) => {
@@ -58,6 +58,7 @@ function mapStateToProps(state) {
     currentSlide: state.txtIntro.currentSlide,
     currentLevelDialogue: state.level.currentLevel.introDialogue,
     currentHeroGold: state.level.currentLevel.hero.gold,
+    level: state.level,
   };
 }
 
