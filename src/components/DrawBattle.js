@@ -19,10 +19,11 @@ class Battle extends Component {
         winner: false,
         battleLog: [],
       },
+      drawBattle: false,
     };
   }
 
-  componentDidMount() {
+  battle = () => {
     const pStats = playerStats(this.props.cart);
 
     const enemy = new Character(
@@ -40,55 +41,62 @@ class Battle extends Component {
     );
 
     this.setState({ battle: fight(hero, enemy) });
-  }
+    this.setState({ drawBattle: true });
+  };
+
+  drawBtns = () => {
+    if (this.state.drawBattle)
+      return !this.state.battle.winner ? (
+        <div className="win-link-container">
+          <h1 className="game-over">You lost. GAME OVER. </h1>
+          <Link
+            className="win-link"
+            to="/introFightDetails"
+            onClick={() => {
+              this.props.resetSlides();
+              this.props.setCurrentLevel();
+              this.props.clearCart();
+            }}
+          >
+            Click here to start over{" "}
+          </Link>
+        </div>
+      ) : this.props.currentLevel.level === this.props.allLevels.length ? (
+        <div className="win-link-container">
+          <h3>
+            You won! Congratulations. Like life, there's no meaning and if you
+            feel empty, welcome to the club. The journey ends... for now.
+          </h3>
+        </div>
+      ) : (
+        <div className="win-link-container">
+          <Link
+            className="win-link"
+            to="/levelIntro"
+            onClick={() => {
+              this.props.nextLevel();
+              this.setState({ battle: { winner: false } });
+              this.props.resetSlides();
+              this.props.setCurrentLevel();
+              this.props.clearCart();
+            }}
+          >
+            Congratulations! Press HERE to go to the Next Level!
+          </Link>
+        </div>
+      );
+  };
 
   render() {
     return (
       <div>
+        <button onClick={() => this.battle()}>Fight!</button>
         <div className="draw-battle-container">
           {this.state.battle.battleLog.map((log, index) => {
             return <p key={index}>{log}</p>;
           })}
         </div>
-        {!this.state.battle.winner ? (
-          <div className="win-link-container">
-            <h1 className="game-over">You lost. GAME OVER. </h1>
-            <Link
-              className="win-link"
-              to="/introFightDetails"
-              onClick={() => {
-                this.props.resetSlides();
-                this.props.setCurrentLevel();
-                this.props.clearCart();
-              }}
-            >
-              Click here to start over{" "}
-            </Link>
-          </div>
-        ) : this.props.currentLevel.level === this.props.allLevels.length ? (
-          <div className="win-link-container">
-            <h3>
-              You won! Congratulations. Like life, there's no meaning and if you
-              feel empty, welcome to the club. The journey ends... for now.
-            </h3>
-          </div>
-        ) : (
-          <div className="win-link-container">
-            <Link
-              className="win-link"
-              to="/levelIntro"
-              onClick={() => {
-                this.props.nextLevel();
-                this.setState({ battle: { winner: false } });
-                this.props.resetSlides();
-                this.props.setCurrentLevel();
-                this.props.clearCart();
-              }}
-            >
-              Congratulations! Press HERE to go to the Next Level!
-            </Link>
-          </div>
-        )}
+        {this.drawBtns()}
       </div>
     );
   }
