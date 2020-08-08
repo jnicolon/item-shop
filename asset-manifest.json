@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/item-show/static/css/main.79428b0c.chunk.css",
+    "main.js": "/item-show/static/js/main.f0d519b9.chunk.js",
+    "main.js.map": "/item-show/static/js/main.f0d519b9.chunk.js.map",
+    "runtime-main.js": "/item-show/static/js/runtime-main.ed3f6f65.js",
+    "runtime-main.js.map": "/item-show/static/js/runtime-main.ed3f6f65.js.map",
+    "static/js/2.a544b0a6.chunk.js": "/item-show/static/js/2.a544b0a6.chunk.js",
+    "static/js/2.a544b0a6.chunk.js.map": "/item-show/static/js/2.a544b0a6.chunk.js.map",
+    "index.html": "/item-show/index.html",
+    "precache-manifest.796e4814b56518fb4ec815f72d83ca3d.js": "/item-show/precache-manifest.796e4814b56518fb4ec815f72d83ca3d.js",
+    "service-worker.js": "/item-show/service-worker.js",
+    "static/css/main.79428b0c.chunk.css.map": "/item-show/static/css/main.79428b0c.chunk.css.map",
+    "static/js/2.a544b0a6.chunk.js.LICENSE.txt": "/item-show/static/js/2.a544b0a6.chunk.js.LICENSE.txt",
+    "static/media/chillBrad.png": "/item-show/static/media/chillBrad.c845f44a.png",
+    "static/media/yoga.jpg": "/item-show/static/media/yoga.14b181b7.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ed3f6f65.js",
+    "static/js/2.a544b0a6.chunk.js",
+    "static/css/main.79428b0c.chunk.css",
+    "static/js/main.f0d519b9.chunk.js"
+  ]
+}
