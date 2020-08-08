@@ -11,14 +11,15 @@ export default class Intro extends Component {
 
   render() {
     return (
-      <div className={this.state.display ? "intro" : "intro display-off"}>
+      // <div className={this.state.display ? "intro" : "intro display-off"}>
+      <div className="intro">
         <h4>
           I guess in previous times they would have refered to you as
           WeaponMaster but today you will be known as...
         </h4>
         <h1>MEDIEVAL PERSONAL SHOPPER</h1>
         <Link
-          onClick={() => this.setState({ display: false })}
+          //onClick={() => this.setState({ display: false })}
           to="/levelIntro"
         >
           Start adventure!
