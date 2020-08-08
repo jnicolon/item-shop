@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 class CartIcon extends Component {
   render() {
     return (
-      <Link to="./CartPage">
-        Items in cart: {this.props.itemsInCart.length}
-      </Link>
+      <>
+        <h6>Items in bag: {this.props.itemsInCart.length}</h6>
+        <Link to="./CartPage">Click to checkout</Link>
+      </>
     );
   }
 }

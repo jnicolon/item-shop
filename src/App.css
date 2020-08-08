@@ -325,6 +325,7 @@
 }
 
 .checkout-container {
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -387,18 +388,21 @@ td {
   display: none;
 }
 
-.gold-modal-sign {
+.modal-sign {
   position: absolute;
-  top: calc(50% - 50px);
+  top: calc(40% - 50px);
   left: calc(50% - 150px);
   width: 300px;
-  height: 100px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   background-color: rgb(243, 243, 59);
   border-radius: 10px;
 }
 
-.gold-modal-bg {
+.modal-bg {
   position: absolute;
   z-index: 10;
   left: 0;

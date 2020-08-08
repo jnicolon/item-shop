@@ -25,3 +25,9 @@ export function clearCart() {
     type: types.CLEAR_CART,
   };
 }
+
+export function checkWeaponNumber() {
+  return {
+    type: types.CHECK_WEAPON_NUMBER,
+  };
+}

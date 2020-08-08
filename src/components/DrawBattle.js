@@ -43,6 +43,8 @@ class Battle extends Component {
   }
 
   render() {
+    console.log(this.props.allLevels.length);
+    console.log(this.props.currentLevel);
     return (
       <div>
         <div className="draw-battle-container">
@@ -51,7 +53,27 @@ class Battle extends Component {
           })}
         </div>
         {!this.state.battle.winner ? (
-          <h1 className="game-over">You lost. GAME OVER. </h1>
+          <div className="win-link-container">
+            <h1 className="game-over">You lost. GAME OVER. </h1>
+            <Link
+              className="win-link"
+              to="/introFightDetails"
+              onClick={() => {
+                this.props.resetSlides();
+                this.props.setCurrentLevel();
+                this.props.clearCart();
+              }}
+            >
+              Click here to start over{" "}
+            </Link>
+          </div>
+        ) : this.props.currentLevel.level === this.props.allLevels.length ? (
+          <div className="win-link-container">
+            <h3>
+              You won! Congratulations. Like life, there's no meaning and if you
+              feel empty, welcome to the club. The journey ends... for now.
+            </h3>
+          </div>
         ) : (
           <div className="win-link-container">
             <Link
@@ -65,7 +87,7 @@ class Battle extends Component {
                 this.props.clearCart();
               }}
             >
-              Congratulations! Press here to go to the Next Level!
+              Congratulations! Press HERE to go to the Next Level!
             </Link>
           </div>
         )}
@@ -78,6 +100,7 @@ function mapStateToProps(state) {
   return {
     cart: state.cart.cart,
     currentLevel: state.level.currentLevel,
+    allLevels: state.level.allLevels,
   };
 }
 

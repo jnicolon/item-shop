@@ -3,6 +3,7 @@ import * as types from "../actions/actionTypes";
 const initialState = {
   cart: [],
   cartTotal: 0,
+  weaponNumber: 0,
 };
 
 export default function cartReducers(state = initialState, action) {
@@ -30,6 +31,13 @@ export default function cartReducers(state = initialState, action) {
       return {
         ...state,
         cart: [],
+      };
+    case types.CHECK_WEAPON_NUMBER:
+      const cartCopy3 = [...state.cart];
+      const weaponArray = cartCopy3.filter((item) => item.type === "Weapon");
+      return {
+        ...state,
+        weaponNumber: weaponArray.length,
       };
     default:
       return state;
