@@ -67,7 +67,7 @@ export const level1Intro = [
   {
     character: "hero1",
     image: hero1,
-    dialogue: "I have 11 gold",
+    dialogue: "I have 12 gold",
   },
   {
     character: "hero1",

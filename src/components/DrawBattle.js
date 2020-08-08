@@ -43,8 +43,6 @@ class Battle extends Component {
   }
 
   render() {
-    console.log(this.props.allLevels.length);
-    console.log(this.props.currentLevel);
     return (
       <div>
         <div className="draw-battle-container">
