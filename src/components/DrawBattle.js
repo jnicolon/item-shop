@@ -10,15 +10,16 @@ import { Link } from "react-router-dom";
 import { resetSlides } from "../redux/actions/textActions";
 import { setCurrentLevel } from "../redux/actions/levelActions";
 import { clearCart } from "../redux/actions/cartActions";
+import {
+  updateBattle,
+  updateWinner,
+  clearBattleLog,
+} from "../redux/actions/battleActions";
 
 class Battle extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      battle: {
-        winner: false,
-        battleLog: [],
-      },
       drawBattle: false,
     };
   }
@@ -40,13 +41,18 @@ class Battle extends Component {
       pStats.mana
     );
 
-    this.setState({ battle: fight(hero, enemy) });
+    const battle = fight(hero, enemy);
+
+    this.props.clearBattleLog();
+    this.props.updateBattle(battle.battleLog);
+    this.props.updateWinner(battle.winner);
+
     this.setState({ drawBattle: true });
   };
 
   drawBtns = () => {
     if (this.state.drawBattle)
-      return !this.state.battle.winner ? (
+      return !this.props.winnerStatus ? (
         <div className="win-link-container">
           <h1 className="game-over">You lost. GAME OVER. </h1>
           <Link
@@ -58,7 +64,7 @@ class Battle extends Component {
               this.props.clearCart();
             }}
           >
-            Click here to start over{" "}
+            Click here to start over 8
           </Link>
         </div>
       ) : this.props.currentLevel.level === this.props.allLevels.length ? (
@@ -75,7 +81,7 @@ class Battle extends Component {
             to="/levelIntro"
             onClick={() => {
               this.props.nextLevel();
-              this.setState({ battle: { winner: false } });
+              this.props.updateWinner(false);
               this.props.resetSlides();
               this.props.setCurrentLevel();
               this.props.clearCart();
@@ -92,7 +98,7 @@ class Battle extends Component {
       <div>
         <button onClick={() => this.battle()}>Fight!</button>
         <div className="draw-battle-container">
-          {this.state.battle.battleLog.map((log, index) => {
+          {this.props.battleLog.map((log, index) => {
             return <p key={index}>{log}</p>;
           })}
         </div>
@@ -107,6 +113,8 @@ function mapStateToProps(state) {
     cart: state.cart.cart,
     currentLevel: state.level.currentLevel,
     allLevels: state.level.allLevels,
+    winnerStatus: state.battle.winner,
+    battleLog: state.battle.battleLog,
   };
 }
 
@@ -116,6 +124,9 @@ function mapDispatchToProps(dispatch) {
     resetSlides: () => dispatch(resetSlides()),
     setCurrentLevel: () => dispatch(setCurrentLevel()),
     clearCart: () => dispatch(clearCart()),
+    updateBattle: (battle) => dispatch(updateBattle(battle)),
+    updateWinner: (winner) => dispatch(updateWinner(winner)),
+    clearBattleLog: () => dispatch(clearBattleLog()),
   };
 }
 

@@ -5,6 +5,7 @@ import cart from "./cartReducer";
 import modal from "./modalReducers";
 import txtIntro from "./textReducers";
 import level from "./levelReducers";
+import battle from "./battleReducers";
 
 const rootReducer = combineReducers({
   items,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   modal,
   txtIntro,
   level,
+  battle,
 });
 
 export default rootReducer;
