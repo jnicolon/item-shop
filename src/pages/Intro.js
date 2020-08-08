@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
 export default class Intro extends Component {
   render() {
     return (
-      <div className="intro">
+      <div
+        className={
+          window.location.pathname === "/"
+            ? "intro dispaly-on"
+            : "intro display-off"
+        }
+      >
         <h4>
           I guess in previous times they would have refered to you as
           WeaponMaster but today you will be known as...
