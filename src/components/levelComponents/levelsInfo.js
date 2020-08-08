@@ -10,14 +10,14 @@ export const levels = [
     level: 1,
     hero: {
       name: "Chill Brad",
-      gold: 20,
+      gold: 12,
       img: chillBradImg,
     },
     enemy: {
       name: "A Tiny Orc",
       stats: {
         hp: 15,
-        atk: 1,
+        atk: 3,
         mana: 0,
       },
       img: enemy1Img,
@@ -28,14 +28,14 @@ export const levels = [
     level: 2,
     hero: {
       name: "Mongor",
-      gold: 40,
+      gold: 36,
       img: hero2img,
     },
     enemy: {
       name: "Limber Johnny",
       stats: {
-        hp: 20,
-        atk: 40,
+        hp: 25,
+        atk: 45,
         mana: 0,
       },
       img: enemy2Img,

@@ -13,7 +13,7 @@ import { connect } from "react-redux";
 import * as api from "./redux/middleWare/itemsApi";
 import * as itemActions from "./redux/actions/itemActions";
 import BattlePage from "./pages/BattlePage";
-import GoldModal from "./components/GoldModal";
+import Modal from "./components/Modal";
 import { toggleGoldModal } from "./redux/actions/modalActions";
 import { setCurrentLevel } from "./redux/actions/levelActions";
 import IntroFightDetails from "./pages/LevelIntroFightDetails";
@@ -33,8 +33,9 @@ class App extends React.Component {
     };
 
     const closeModal = (e) => {
-      e.target.className.includes("display-on") &&
+      if (e.target.className.includes("display-on")) {
         this.props.toggleGoldModal(false);
+      }
     };
 
     const handleClick = (e) => {
@@ -45,7 +46,10 @@ class App extends React.Component {
     return (
       <div className="main-container" onClick={(e) => handleClick(e)}>
         <BrowserRouter>
-          <GoldModal />
+          <Modal
+            modalTxt="You don't have enough gold!"
+            modalStatus={this.props.goldModal}
+          />
           <Header />
 
           <Switch>
@@ -70,6 +74,8 @@ function mapStateToProps(state) {
     items: state.items,
     selectedItem: state.items.selectedItem,
     currentHeroGold: state.level.currentLevel.hero.gold,
+    goldModal: state.modal.goldModal,
+    weaponNumerModal: state.modal.weaponNumberModal,
   };
 }
 

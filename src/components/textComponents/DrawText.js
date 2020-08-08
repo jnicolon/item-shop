@@ -11,21 +11,12 @@ class DrawText extends Component {
         this.props.currentLevelDialogue.length - 1 ===
         this.props.currentSlide
       ) {
-        return (
-          <Link
-            onClick={() =>
-              this.props.setCurrentGold(this.props.currentHeroGold)
-            }
-            to="/introFightDetails"
-          >
-            Go forth!
-          </Link>
-        );
+        return <Link to="/introFightDetails">Go forth!</Link>;
       } else {
         return <button onClick={() => this.props.nextSlide()}>Next</button>;
       }
     };
-    console.log(this.props.level);
+
     return (
       <div className="draw-text-container">
         {this.props.currentLevelDialogue.map((object, index) => {

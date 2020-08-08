@@ -6,3 +6,10 @@ export function toggleGoldModal(status) {
     payload: status,
   };
 }
+
+export function toggleWeaponNumberModal(status) {
+  return {
+    type: types.TOGGLE_WEAPON_NUMBER_MODAL,
+    payload: status,
+  };
+}
