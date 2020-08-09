@@ -51,7 +51,6 @@ class App extends React.Component {
             modalStatus={this.props.goldModal}
           />
           <Header />
-          <Intro />
           <Switch>
             <Route exact path="/" component={Intro} />
             <Route exact path="/levelIntro" component={LevelIntro} />
