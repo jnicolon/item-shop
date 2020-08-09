@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Weapons from "./pages/Weapons";
 import Armor from "./pages/Armor";
@@ -45,7 +45,7 @@ class App extends React.Component {
 
     return (
       <div className="main-container" onClick={(e) => handleClick(e)}>
-        <HashRouter>
+        <BrowserRouter>
           <Modal
             modalTxt="You don't have enough gold!"
             modalStatus={this.props.goldModal}
@@ -63,7 +63,7 @@ class App extends React.Component {
             <Route path="/introFightDetails" component={IntroFightDetails} />
           </Switch>
           <SelectedItemInfo />
-        </HashRouter>
+        </BrowserRouter>
       </div>
     );
   }
