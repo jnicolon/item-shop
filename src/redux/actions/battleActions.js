@@ -19,3 +19,10 @@ export function clearBattleLog() {
     type: types.CLEAR_BATTLELOG,
   };
 }
+
+export function pushBattleLog(battleAction) {
+  return {
+    type: types.PUSH_BATTLELOG,
+    payload: battleAction,
+  };
+}
