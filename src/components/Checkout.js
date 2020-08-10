@@ -3,7 +3,7 @@ import { cartTotal } from "../redux/actions/cartActions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import SelectedStatsContainer from "./SelectedStatsContainer";
-import { playerStats } from "./fight components/FightFunctionality";
+import { playerStats } from "./fightComponents/FightFunctionality";
 import { checkWeaponNumber } from "../redux/actions/cartActions";
 
 class Checkout extends Component {

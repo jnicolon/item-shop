@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Character, playerStats } from "./fight components/FightFunctionality";
+import { Character, playerStats } from "./fightComponents/FightFunctionality";
 import { changeNextLevel } from "../redux/actions/levelActions";
-import { Link } from "react-router-dom";
 import { resetSlides } from "../redux/actions/textActions";
 import { setCurrentLevel } from "../redux/actions/levelActions";
 import { clearCart } from "../redux/actions/cartActions";
@@ -12,6 +11,7 @@ import {
   clearBattleLog,
   pushBattleLog,
 } from "../redux/actions/battleActions";
+import BattleBtn from "./fightComponents/BattleBtn";
 
 class Battle extends Component {
   constructor(props) {
@@ -82,49 +82,6 @@ class Battle extends Component {
     this.setState({ drawBattle: true });
   };
 
-  drawBtns = () => {
-    if (this.state.drawBattle)
-      return !this.props.winnerStatus ? (
-        <div className="win-link-container">
-          <h1 className="game-over">You lost. GAME OVER. </h1>
-          <Link
-            className="win-link"
-            to="/introFightDetails"
-            onClick={() => {
-              this.props.resetSlides();
-              this.props.setCurrentLevel();
-              this.props.clearCart();
-            }}
-          >
-            Click here to start over.
-          </Link>
-        </div>
-      ) : this.props.currentLevel.level === this.props.allLevels.length ? (
-        <div className="win-link-container">
-          <h3>
-            You won! Like life, there's no meaning and if you feel empty,
-            welcome to the club. The journey ends... for now.
-          </h3>
-        </div>
-      ) : (
-        <div className="win-link-container">
-          <Link
-            className="win-link"
-            to="/levelIntro"
-            onClick={() => {
-              this.props.nextLevel();
-              this.props.updateWinner(false);
-              this.props.resetSlides();
-              this.props.setCurrentLevel();
-              this.props.clearCart();
-            }}
-          >
-            Congratulations! Press HERE to go to the Next Level!
-          </Link>
-        </div>
-      );
-  };
-
   render() {
     return (
       <div>
@@ -134,7 +91,7 @@ class Battle extends Component {
             return <p key={index}>{log}</p>;
           })}
         </div>
-        {this.drawBtns()}
+        <BattleBtn drawBattle={this.state.drawBattle} />
       </div>
     );
   }
