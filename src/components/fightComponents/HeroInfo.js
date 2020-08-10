@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setCurrentGold } from "../redux/actions/goldActions";
+import { setCurrentGold } from "../../redux/actions/goldActions";
 
 class HeroInfo extends Component {
   render() {

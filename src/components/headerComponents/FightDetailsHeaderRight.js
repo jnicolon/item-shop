@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import HeroInfo from "./HeroInfo.js";
-import CartIcon from "./CartIcon";
-import CharacterGold from "./CharacterGold";
+import HeroInfo from "../fightComponents/HeroInfo";
+import CartIcon from "../cartComponents/CartIcon";
+import CharacterGold from "../cartComponents/CharacterGold";
 
 class FightDetailsHeaderRight extends Component {
   render() {

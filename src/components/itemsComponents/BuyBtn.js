@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { buyItem } from "../redux/actions/goldActions";
-import { addItemToCart } from "../redux/actions/cartActions";
-import * as itemActions from "../redux/actions/itemActions";
-import { toggleGoldModal } from "../redux/actions/modalActions";
+import { buyItem } from "../../redux/actions/goldActions";
+import { addItemToCart } from "../../redux/actions/cartActions";
+import * as itemActions from "../../redux/actions/itemActions";
+import { toggleGoldModal } from "../../redux/actions/modalActions";
 
 class BuyBtn extends Component {
   render() {

@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import {
   addItemToCart,
   removeItemFromCart,
-} from "../redux/actions/cartActions";
-import { buyItem, returnItem } from "../redux/actions/goldActions";
-import { toggleGoldModal } from "../redux/actions/modalActions";
+} from "../../redux/actions/cartActions";
+import { buyItem, returnItem } from "../../redux/actions/goldActions";
+import { toggleGoldModal } from "../../redux/actions/modalActions";
 
 class CartItemQuantity extends Component {
   render() {

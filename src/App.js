@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
 import { HashRouter, Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
+import Header from "./components/headerComponents/Header";
 import Weapons from "./pages/Weapons";
 import Armor from "./pages/Armor";
 import Spells from "./pages/Spells";
 import Intro from "./pages/Intro";
 import CartPage from "./pages/CartPage";
-import SelectedItemInfo from "./components/SelectedItemInfo";
+import SelectedItemInfo from "./components/itemsComponents/SelectedItemInfo";
 import LevelIntro from "./pages/LevelIntro";
 import { connect } from "react-redux";
 import * as api from "./redux/middleWare/itemsApi";

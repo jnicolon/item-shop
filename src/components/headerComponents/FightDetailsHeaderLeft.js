@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import EnemyInfo from "./EnemyInfo";
+import EnemyInfo from "../fightComponents/EnemyInfo";
 
 class FightDetailsHeaderLeft extends Component {
   render() {

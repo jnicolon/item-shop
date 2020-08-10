@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import * as itemActions from "../redux/actions/itemActions";
+import * as itemActions from "../../redux/actions/itemActions";
 import BuyBtn from "./BuyBtn";
 
 class SingleItem extends Component {

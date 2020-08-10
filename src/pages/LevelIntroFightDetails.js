@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import HeroInfo from "../components/HeroInfo";
-import EnemyInfo from "../components/EnemyInfo";
+import HeroInfo from "../components/fightComponents/HeroInfo";
+import EnemyInfo from "../components/fightComponents/EnemyInfo";
 import { Link } from "react-router-dom";
 import { setCurrentGold } from "../redux/actions/goldActions";
 import { connect } from "react-redux";

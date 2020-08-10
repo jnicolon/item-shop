@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import CartItem from "../components/CartItem";
-import Checkout from "../components/Checkout";
+import CartItem from "../components/cartComponents/CartItem";
+import Checkout from "../components/checkoutComponents/Checkout";
 import { connect } from "react-redux";
 
 class CartPage extends Component {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FilteredItems from "../components/FilteredItems";
+import FilteredItems from "../components/itemsComponents/FilteredItems";
 
 class Weapons extends Component {
   render() {

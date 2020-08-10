@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { cartTotal } from "../redux/actions/cartActions";
+import { cartTotal } from "../../redux/actions/cartActions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import SelectedStatsContainer from "./SelectedStatsContainer";
-import { playerStats } from "./fightComponents/FightFunctionality";
-import { checkWeaponNumber } from "../redux/actions/cartActions";
+import SelectedStatsContainer from "../itemsComponents/SelectedStatsContainer";
+import { playerStats } from "../fightComponents/FightFunctionality";
+import { checkWeaponNumber } from "../../redux/actions/cartActions";
 
 class Checkout extends Component {
   componentDidMount() {
