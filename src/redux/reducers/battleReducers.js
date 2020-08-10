@@ -17,6 +17,11 @@ export default function buyGold(state = initialState, action) {
         ...state,
         battleLog: action.payload,
       };
+    case types.PUSH_BATTLELOG:
+      return {
+        ...state,
+        battleLog: [...state.battleLog, action.payload],
+      };
     case types.CLEAR_BATTLELOG:
       return {
         ...state,

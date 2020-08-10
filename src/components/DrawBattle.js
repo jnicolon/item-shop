@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  Character,
-  fight,
-  playerStats,
-} from "./fight components/FightFunctionality";
+import { Character, playerStats } from "./fight components/FightFunctionality";
 import { changeNextLevel } from "../redux/actions/levelActions";
 import { Link } from "react-router-dom";
 import { resetSlides } from "../redux/actions/textActions";
@@ -14,6 +10,7 @@ import {
   updateBattle,
   updateWinner,
   clearBattleLog,
+  pushBattleLog,
 } from "../redux/actions/battleActions";
 
 class Battle extends Component {
@@ -23,6 +20,45 @@ class Battle extends Component {
       drawBattle: false,
     };
   }
+
+  componentWillUnmount() {
+    this.props.clearBattleLog();
+  }
+
+  fight = (player, enemy) => {
+    //when one of the two has zero hp,  .
+    if (player.hp <= 0 || enemy.hp <= 0) {
+      if (player.hp <= 0) {
+        //we add who wins to the battle log
+        this.props.pushBattleLog(`${enemy.name} defeated ${player.name}`);
+      } else if (enemy.hp <= 0) {
+        this.props.pushBattleLog(`${player.name} defeated ${enemy.name}`);
+        this.props.updateWinner(true);
+      }
+      //and return the battle log
+
+      return this.props.battleLog;
+    } else {
+      //we attack and set the new hp of the enemy.
+      enemy.hp = player.attack(enemy);
+      //we add the action to the battle log.
+      this.props.pushBattleLog(
+        `${player.name} attacked ${enemy.name} and dealt ${player.atk} damage. ${enemy.name} has ${enemy.hp} hp left`
+      );
+      //we check if it's zero and if so we re start the function here
+      if (enemy.hp <= 0) {
+        return this.fight(player, enemy);
+      }
+      //if not we let the enemy attack back
+      else {
+        player.hp = enemy.attack(player);
+        this.props.pushBattleLog(
+          `${enemy.name} attacked ${player.name} and dealt ${enemy.atk} damage. ${player.name} has ${player.hp} hp left`
+        );
+        return this.fight(player, enemy);
+      }
+    }
+  };
 
   battle = () => {
     const pStats = playerStats(this.props.cart);
@@ -41,11 +77,7 @@ class Battle extends Component {
       pStats.mana
     );
 
-    const battle = fight(hero, enemy);
-
-    this.props.clearBattleLog();
-    this.props.updateBattle(battle.battleLog);
-    this.props.updateWinner(battle.winner);
+    this.fight(hero, enemy);
 
     this.setState({ drawBattle: true });
   };
@@ -64,14 +96,14 @@ class Battle extends Component {
               this.props.clearCart();
             }}
           >
-            Click here to start over 8
+            Click here to start over.
           </Link>
         </div>
       ) : this.props.currentLevel.level === this.props.allLevels.length ? (
         <div className="win-link-container">
           <h3>
-            You won! Congratulations. Like life, there's no meaning and if you
-            feel empty, welcome to the club. The journey ends... for now.
+            You won! Like life, there's no meaning and if you feel empty,
+            welcome to the club. The journey ends... for now.
           </h3>
         </div>
       ) : (
@@ -127,6 +159,7 @@ function mapDispatchToProps(dispatch) {
     updateBattle: (battle) => dispatch(updateBattle(battle)),
     updateWinner: (winner) => dispatch(updateWinner(winner)),
     clearBattleLog: () => dispatch(clearBattleLog()),
+    pushBattleLog: (battleAction) => dispatch(pushBattleLog(battleAction)),
   };
 }
 
