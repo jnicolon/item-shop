@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Character, playerStats } from "./fightComponents/FightFunctionality";
-import { changeNextLevel } from "../redux/actions/levelActions";
-import { resetSlides } from "../redux/actions/textActions";
-import { setCurrentLevel } from "../redux/actions/levelActions";
-import { clearCart } from "../redux/actions/cartActions";
+import { Character, playerStats } from "./FightFunctionality";
+import { changeNextLevel } from "../../redux/actions/levelActions";
+import { resetSlides } from "../../redux/actions/textActions";
+import { setCurrentLevel } from "../../redux/actions/levelActions";
+import { clearCart } from "../../redux/actions/cartActions";
 import {
   updateBattle,
   updateWinner,
   clearBattleLog,
   pushBattleLog,
-} from "../redux/actions/battleActions";
-import BattleBtn from "./fightComponents/BattleBtn";
+} from "../../redux/actions/battleActions";
+import BattleBtn from "./BattleBtn";
 
 class Battle extends Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DrawBattle from "../components/DrawBattle";
+import DrawBattle from "../components/fightComponents/DrawBattle";
 
 export default class BattlePage extends Component {
   render() {
