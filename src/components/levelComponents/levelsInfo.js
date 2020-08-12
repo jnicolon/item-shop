@@ -19,8 +19,8 @@ export const levels = [
     enemy: {
       name: "A Tiny Orc",
       stats: {
-        hp: 25,
-        atk: 45,
+        hp: 15,
+        atk: 3,
         mana: 0,
       },
       img: enemy1Img,
