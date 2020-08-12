@@ -36,15 +36,36 @@ class Battle extends Component {
         this.props.updateWinner(true);
       }
       //and return the battle log
-
       return this.props.battleLog;
     } else {
+      if (player.spellName !== "noSpell") {
+        //check if the player mana is enough to set the spell action.
+        //Returns an object with {newMana, spellStatus}
+        const checkSpellOutcome = player.checkSpell();
+        //Based on the spellStatus, we check for what spell and what to do.
+        const spellOutcome = player.useSpell(player, enemy);
+        //returns an object with {spellname, spellDamage, damage}
+        if (checkSpellOutcome.spellStatus) {
+          enemy.hp = spellOutcome.damage;
+          this.props.pushBattleLog(
+            `${player.name} used ${spellOutcome.spellName} and dealt ${spellOutcome.spellDamage} damage. ${enemy.name} has ${enemy.hp} hp left`
+          );
+        }
+      }
       //we attack and set the new hp of the enemy.
       enemy.hp = player.attack(enemy);
       //we add the action to the battle log.
-      this.props.pushBattleLog(
-        `${player.name} attacked ${enemy.name} and dealt ${player.atk} damage. ${enemy.name} has ${enemy.hp} hp left`
-      );
+      if (enemy.hp > 0) {
+        this.props.pushBattleLog(
+          `${player.name} attacked ${enemy.name} and dealt ${player.atk} damage. ${enemy.name} has ${enemy.hp} hp left`
+        );
+
+        player.totalMana = player.totalMana + player.originalMana;
+        this.props.pushBattleLog(
+          `${player.name}'s mana increased to ${player.totalMana}`
+        );
+      }
+
       //we check if it's zero and if so we re start the function here
       if (enemy.hp <= 0) {
         return this.fight(player, enemy);
@@ -60,7 +81,7 @@ class Battle extends Component {
     }
   };
 
-  battle = () => {
+  newBattle = () => {
     const pStats = playerStats(this.props.cart);
 
     const enemy = new Character(
@@ -74,7 +95,9 @@ class Battle extends Component {
       this.props.currentLevel.hero.name,
       pStats.hp,
       pStats.atk,
-      pStats.mana
+      pStats.mana,
+      pStats.spellManaCost,
+      pStats.spellName
     );
 
     this.fight(hero, enemy);
@@ -85,7 +108,7 @@ class Battle extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.battle()}>Fight!</button>
+        <button onClick={() => this.newBattle()}>Fight!</button>
         <div className="draw-battle-container">
           {this.props.battleLog.map((log, index) => {
             return <p key={index}>{log}</p>;
