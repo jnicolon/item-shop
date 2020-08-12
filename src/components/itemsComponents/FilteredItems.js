@@ -8,7 +8,11 @@ class FilteredItems extends Component {
       (key) => `/${key.fields.type}` === this.props.path
     );
 
-    const renderItems = filteredItems.map((item, index) => {
+    const sortItemsByPrice = filteredItems.sort(
+      (a, b) => a.fields.price - b.fields.price
+    );
+
+    const renderItems = sortItemsByPrice.map((item) => {
       return <SingleItem item={item.fields} key={item.fields.id} />;
     });
 
