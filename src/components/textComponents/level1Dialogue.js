@@ -36,22 +36,22 @@ export const level1Intro = [
   {
     character: "hero1",
     image: hero1,
-    dialogue: "Sup, i'm chill brad.",
+    dialogue: "Sup, i'm Chill Crad.",
   },
   {
     character: "hero1",
     image: hero1,
-    dialogue: "This fucking tiny orc stole my pants.",
+    dialogue: "This stupid tiny orc stole my pants.",
   },
   {
     character: "hero1",
     image: hero1,
-    dialogue: "I want to fuck him up but I've never been in a fight in my life",
+    dialogue: "I want to kick his ass but I've never been in a fight in my life",
   },
   {
     character: "hero1",
     image: hero1,
-    dialogue: "Can you buy some shit for me? Like real nice things",
+    dialogue: "Can you buy some stuff for me? Like real nice things",
   },
 
   {

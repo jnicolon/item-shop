@@ -25,7 +25,7 @@ export const level3Intro = [
   {
     character: "hero3",
     image: hero3,
-    dialogue: "MINDFREAK, BABY!",
+    dialogue: "I said: MINDFREAK, BABY!",
   },
   {
     character: "hero3",

@@ -10,7 +10,7 @@ export const level2Intro = [
   {
     character: "tavernKeeper",
     image: tavernKeeper,
-    dialogue: "Here comes another one",
+    dialogue: "Here comes another customer",
   },
   {
     character: "hero2",
@@ -20,7 +20,7 @@ export const level2Intro = [
   {
     character: "hero2",
     image: hero2,
-    dialogue: "This limber motherfucker keeps pissing me off",
+    dialogue: "This limber guy keeps pissing me off",
   },
   {
     character: "hero2",
@@ -37,7 +37,7 @@ export const level2Intro = [
   {
     character: "hero2",
     image: hero2,
-    dialogue: "Rememeber that guy? That guy was ripped.",
+    dialogue: "Rememeber the Knight of the Dawn? That guy was ripped.",
   },
   {
     character: "hero2",
@@ -47,7 +47,7 @@ export const level2Intro = [
   {
     character: "hero2",
     image: hero2,
-    dialogue: "Six months later... no pussy. WTF. I'm going to fuck him up.",
+    dialogue: "Six months later... my love handles have love handles! I'm going to fight him.",
   },
   {
     character: "hero2",
