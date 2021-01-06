@@ -1,12 +1,15 @@
 import * as actions from "../actions/itemActions";
 import * as contentful from "contentful";
 
+const accessToken = process.env.REACT_APP_CONTENFUL_ACCESS_TOKEN_ITEM_SHOP;
+const space = process.env.REACT_APP_CONTENFUL_SPACE_ITEM_SHOP;
+
 export const fetchItems = () => {
   return function (dispatch) {
     dispatch(actions.fetchItemsRequest());
     const client = contentful.createClient({
-      space: "bz2b6zu2ij16",
-      accessToken: "5g4Q46RqnmPxrAOwon5dsojjIVslg7fFC17jryB4IEY",
+      space: space,
+      accessToken: accessToken,
     });
     client
       .getEntries("itemShop")
