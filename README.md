@@ -9,7 +9,7 @@ The idea behind it was to make an e-commerce site but after seein thousand of e-
 
 It looks terrrible because it was mostly for learning the technologies but I really want to go back some time and add some more features like fight animations and diferent stats like defense and magic res.
 
-###Some functionality includes:
+### Some functionality includes:
   - A reusable intro system that created pages dynamically based on an array of txt using react router.
   - A cart that stores items and their prices. 
   - A checkout page that count how much money you have and if you don't have enouhg, it doesn't let you go to the fight.
