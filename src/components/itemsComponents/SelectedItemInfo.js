@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import SelectedStatsContainer from "./SelectedStatsContainer";
+import BuyBtn from "./BuyBtn";
 
 class SelectedItemInfo extends Component {
   render() {
+    console.log(this.props.selectedItem);
     return (
       <div
         className={
@@ -33,6 +35,7 @@ class SelectedItemInfo extends Component {
           <SelectedStatsContainer
             stats={this.props.selectedItem.hp ? this.props.selectedItem : ""}
           />
+          <BuyBtn item={this.props.selectedItem} />
         </div>
       </div>
     );

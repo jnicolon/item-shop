@@ -34,7 +34,6 @@ class SingleItem extends Component {
         </div>
         <div className="single-item-price-container">
           <p className="single-item-price">{this.props.item.price} gold</p>
-          <BuyBtn item={this.props.item} />
         </div>
       </div>
     );

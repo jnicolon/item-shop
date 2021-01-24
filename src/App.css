@@ -250,8 +250,9 @@
 }
 
 .single-item-btn {
-  font-size: 11px;
+  font-size: 16px;
   cursor: pointer;
+  padding: 5px 10px;
 }
 
 .cart-container {
