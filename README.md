@@ -1,6 +1,8 @@
 
 ## Medieval Personal Shopper
 
+Live Website: https://jnicolon.github.io/item-shop/#/
+
 This project was made while learning React. In particular, class components and lifecycle hooks, and redux for state managment. 
 
 I also experimented with saving some data externally in Contenful and use it's cmi to make api calls with redux thunk. It's not necesary for this project because it functions more like a game but I wanted to learn it.
